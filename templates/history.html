@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ro" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istoric Comenzi - MilDocDMS</title>
+    <link href="{{ url_for('static', filename='vendor/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="mb-4">Istoric Comenzi MilDocDMS</h1>
+        
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>Ultimele Comenzi Executate</span>
+                <a href="/" class="btn btn-outline-secondary btn-sm">
+                    Înapoi la Terminal
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Data și Ora</th>
+                                <th>Comanda</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for entry in history|reverse %}
+                            <tr>
+                                <td>{{ entry.timestamp }}</td>
+                                <td><code>{{ entry.command }}</code></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
