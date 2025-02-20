@@ -1,5 +1,5 @@
 
-# MilDocDMS Web Interface
+# Paperless Web Interface
 
 Interfață web pentru gestionarea și procesarea documentelor folosind serviciul MilDocDMS. Oferă acces la comenzi de procesare documente prin intermediul unui terminal web interactiv.
 
