@@ -1,7 +1,6 @@
+# MilDocDMS Orchestrator
 
-# Paperless Web Interface
-
-Interfață web pentru gestionarea și procesarea documentelor folosind serviciul MilDocDMS. Oferă acces la comenzi de procesare documente prin intermediul unui terminal web interactiv.
+Interfață web pentru gestionarea și procesarea documentelor folosind serviciul MilDocDMS Orchestrator. Oferă un terminal web interactiv pentru executarea comenzilor de administrare a documentelor.
 
 ## Caracteristici
 
@@ -11,70 +10,138 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 - Istoric comenzi executate
 - Suport pentru instalare offline
 
-## Instalare
+## Cerințe preliminare
 
-### 1. Instalare Dependențe
+- Python 3 și `pip`
+- Acces la pachetul de dependențe din directorul `offline_packages`
+
+## Instalare pas cu pas
+
+1. **Clonați repository-ul**
+   ```bash
+   git clone <URL-repo>
+   cd mildocdms-orchestrator
+   ```
+
+2. **Instalați dependențele**
+   ```bash
+   cd offline_packages
+   pip3 install --no-index --find-links=. -r requirements.txt
+   cd ..
+   ```
+
+3. **Instalați și porniți serviciul**
+   ```bash
+   cd linux_service
+   chmod +x manage_service.sh
+   sudo ./manage_service.sh
+   ```
+   Din meniul scriptului selectați:
+   1. *Instalare serviciu*
+   2. *Pornire serviciu* (dacă nu pornește automat)
+
+4. **Verificați statusul serviciului**
+   ```bash
+   ./check_service.sh
+   ```
+
+5. **Accesați interfața web**
+   Navigați în browser la `http://localhost:5000`.
+
+### Rulare manuală (opțional)
+Pentru a porni aplicația fără instalarea serviciului systemd:
 ```bash
-cd offline_packages
-pip3 install --no-index --find-links=. -r requirements.txt
+python3 app.py
 ```
 
-### 2. Configurare Serviciu
+## Administrarea Serviciului Linux
 
-Folosiți scriptul de management pentru instalare și configurare:
+Scriptul `manage_service.sh` oferă opțiuni pentru administrarea serviciului `mildocdms-orchestrator`:
 
-```bash
-cd linux_service
-chmod +x manage_service.sh
-sudo ./manage_service.sh
-```
-
-Scriptul oferă următoarele opțiuni:
-1. Instalare serviciu
-2. Pornire serviciu
-3. Oprire serviciu
-4. Verificare status
-5. Vizualizare log-uri
-6. Dezinstalare serviciu
+- **Pornire:** `sudo systemctl start mildocdms-orchestrator`
+- **Oprire:** `sudo systemctl stop mildocdms-orchestrator`
+- **Status:** `sudo systemctl status mildocdms-orchestrator`
+- **Log-uri:** `sudo journalctl -u mildocdms-orchestrator -f`
+- **Dezinstalare:** Rulați `./manage_service.sh` și selectați opțiunea `Uninstall service`
 
 ## Utilizare
 
 ### Comenzi Disponibile
 
 - `document_retagger` - Gestionare metadata documente
-  - `-c` - Match document content
+  - `-c` - Match document correspondents
   - `-T` - Match document tags
   - `-t` - Match document types
   - `-s` - Match document storage paths
-  - `-i` - Process only documents with inbox tags
-  
-- `document_index` - Indexare documente
-  - `--no-progress` - Nu arată progresul indexării
-  - `--no-checksum` - Nu verifica checksum-urile
-  - `--clean` - Șterge și recrează indexul
+  - `-i` - Procesează doar documentele cu eticheta inbox
+  - `--id-range` - Procesează un interval de ID-uri (ex. `1 100`)
+  - `--use-first` - Folosește primul rezultat potrivit
+  - `-f` - Suprascrie metadatele existente
 
-- `document_sanity_checker` - Verificare integritate
-  - `--delete` - Șterge fișierele corupte
-  - `--no-progress` - Nu arată progresul verificării
+- `document_exporter` - Exportă documente și metadate
+  - `-c`, `--compare-checksums` - Compară checksum-urile
+  - `-cj`, `--compare-json` - Compară fișierul manifest
+  - `-d`, `--delete` - Șterge fișierele care nu mai sunt în export
+  - `-f`, `--use-filename-format` - Folosește formatul definit în `PAPERLESS_FILENAME_FORMAT`
+  - `-na`, `--no-archive` - Omite fișierele arhivate
+  - `-nt`, `--no-thumbnail` - Omite thumbnail-urile
+  - `-p`, `--use-folder-prefix` - Exportă în directoare separate
+  - `-sm`, `--split-manifest` - Manifest separat per document
+  - `-z`, `--zip` - Creează un fișier ZIP
+  - `-zn`, `--zip-name` - Nume personalizat pentru arhivă
+  - `--data-only` - Exportă doar baza de date
+  - `--no-progress-bar` - Ascunde bara de progres
+  - `--passphrase` - Criptează exportul cu o parolă
 
-### Verificare Status
+- `document_importer` - Importă un export existent
+  - `--no-progress-bar` - Ascunde bara de progres
+  - `--data-only` - Importă doar baza de date
+  - `--passphrase` - Parolă pentru exportul criptat
 
-Pentru a verifica statusul serviciului:
-```bash
-./check_service.sh
-```
+- `document_consumer` - Procesează documentele din directorul de import
+  - `--delete` - Șterge fișierele sursă după procesare
+  - `--watch` - Monitorizează continuu pentru documente noi
+  - `--no-progress` - Ascunde informațiile de progres
 
-### Acces Interfață Web
+- `document_create_classifier` - Reantrenează clasificatorul automat (fără opțiuni)
 
-După instalare și pornire, interfața web este disponibilă la:
-- Port: 5000
-- URL: http://localhost:5000
+- `document_thumbnails` - Regenerare thumbnail-uri
+  - `--document` - ID-ul documentului de procesat
+  - `--processes` - Numărul de procese utilizate
+
+- `document_index` - Administrarea indexului de căutare
+  - `reindex` - Reconstruiește indexul de la zero
+  - `optimize` - Optimizează indexul existent
+
+- `invalidate_cachalot` - Golește cache-ul de citire (fără opțiuni)
+
+- `document_renamer` - Aplică noul format de denumire (fără opțiuni)
+
+- `document_sanity_checker` - Verifică integritatea colecției (fără opțiuni)
+
+- `mail_fetcher` - Rulează manual consumatorul de email (fără opțiuni)
+
+- `document_archiver` - Creează fișiere PDF/A
+  - `--overwrite` - Suprascrie arhivele existente
+  - `--document` - ID-ul documentului de procesat
+
+- `decrypt_documents` - Dezactivează criptarea documentelor
+  - `--passphrase` - Parola folosită la criptare
+
+- `document_fuzzy_match` - Detectează duplicate aproximative
+  - `--ratio` - Prag de similaritate (0-100)
+  - `--processes` - Număr de procese utilizate
+  - `--delete` - Șterge un document din perechea găsită
+
+- `prune_audit_logs` - Curăță intrările vechi din audit (fără opțiuni)
+
+- `createsuperuser` - Creează un cont administrativ (fără opțiuni)
 
 ## Configurare
 
 ### Setări Implicite
 - Utilizator serviciu: `dms`
-- Director instalare: `/opt/mildocdms-web`
+- Director instalare: `/opt/mildocdms-orchestrator`
 - Port: 5000
 
 ### Variabile de Mediu
