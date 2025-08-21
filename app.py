@@ -170,7 +170,7 @@ def index():
 
 COMMAND_OPTIONS = {
     'document_retagger': {
-        '-c': 'Match document content',
+        '-c': 'Match document correspondents',
         '-T': 'Match document tags',
         '-t': 'Match document types',
         '-s': 'Match document storage paths',
@@ -193,6 +193,16 @@ COMMAND_OPTIONS = {
         '--force': 'Forțează recrearea clasificatorului',
         '--min-samples': 'Număr minim de exemple pentru antrenare',
         '--cross-validation': 'Validare încrucișată pentru evaluare model'
+    },
+    'document_exporter': {
+        '--output-directory': 'Directory where exported files are saved',
+        '--zip': 'Package export as ZIP archive',
+        '--no-originals': 'Exclude original document files'
+    },
+    'document_consumer': {
+        '--delete': 'Delete source files after processing',
+        '--watch': 'Continuously watch for new documents',
+        '--no-progress': 'Hide progress information'
     }
 }
 

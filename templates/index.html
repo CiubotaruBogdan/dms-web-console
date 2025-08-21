@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MilDocDMS Command Interface</title>
+    <title>MilDocDMS Orchestrator Command Interface</title>
     <link href="{{ url_for('static', filename='vendor/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='vendor/xterm/xterm.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
@@ -11,19 +11,19 @@
 <body>
     <div class="container">
         <header class="app-header">
-            <h1 class="app-title">MilDocDMS Terminal</h1>
+            <h1 class="app-title">MilDocDMS Orchestrator Terminal</h1>
         </header>
 
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="command-card">
                     <div class="card-header">
-                        <h5 class="mb-0">Comenzi Disponibile</h5>
+                        <h5 class="mb-0">Comenzi disponibile</h5>
                     </div>
                     <div class="card-body">
                         <form id="commandForm">
                             <div class="mb-3">
-                                <label for="commandInput" class="form-label">Selectează Comanda:</label>
+                                <label for="commandInput" class="form-label">Selecteaza comanda:</label>
                                 <input type="text" 
                                        class="form-control" 
                                        id="commandInput" 
@@ -35,6 +35,8 @@
                                     <option value="document_index">
                                     <option value="document_sanity_checker">
                                     <option value="document_create_classifier">
+                                    <option value="document_exporter">
+                                    <option value="document_consumer">
                                 </datalist>
                             </div>
 
@@ -63,7 +65,7 @@
 
                             <button type="submit" class="btn btn-primary w-100 mt-3">
                                 <i data-feather="play"></i>
-                                Execută Comanda
+                                Executa comanda
                             </button>
                         </form>
                     </div>
@@ -79,9 +81,9 @@
                                 <i data-feather="power"></i>
                                 Conectare
                             </button>
-                            <button id="mildocdmsButton" class="btn btn-success" disabled>
+                            <button id="orchestratorButton" class="btn btn-success" disabled>
                                 <i data-feather="box"></i>
-                                MilDocDMS Exec
+                                MilDocDMS Orchestrator Exec
                             </button>
                             <button id="clearButton" class="btn btn-outline-secondary">
                                 <i data-feather="trash-2"></i>

@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isConnected = false;
 
     const connectButton = document.getElementById('connectButton');
-    const mildocdmsButton = document.getElementById('mildocdmsButton');
+    const orchestratorButton = document.getElementById('orchestratorButton');
     const clearButton = document.getElementById('clearButton');
     const commandInput = document.getElementById('commandInput');
     const commandForm = document.getElementById('commandForm');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             connectButton.textContent = 'Connected';
             connectButton.classList.replace('btn-primary', 'btn-success');
             connectButton.disabled = true;
-            mildocdmsButton.disabled = false;
+            orchestratorButton.disabled = false;
             term.focus();
         };
 
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             connectButton.textContent = 'Connect';
             connectButton.classList.replace('btn-success', 'btn-primary');
             connectButton.disabled = false;
-            mildocdmsButton.disabled = true;
+            orchestratorButton.disabled = true;
             term.writeln('\x1b[1;31mDisconnected from terminal.\x1b[0m');
             term.focus();
         };
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             term.writeln('\x1b[1;31mError: WebSocket connection failed.\x1b[0m');
             isConnected = false;
             connectButton.disabled = false;
-            mildocdmsButton.disabled = true;
+            orchestratorButton.disabled = true;
             term.focus();
         };
     }
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    mildocdmsButton.addEventListener('click', () => {
+    orchestratorButton.addEventListener('click', () => {
         if (isConnected && socket.readyState === WebSocket.OPEN) {
             const command = 'docker exec -it mildocdms-webserver-1 bash';
             socket.send(command);
