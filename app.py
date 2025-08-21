@@ -229,8 +229,23 @@ COMMAND_OPTIONS = {
         '--processes': 'Number of processes to use',
         '--delete': 'Delete one document from each matched pair'
     },
-    'prune_audit_logs': {},
-    'createsuperuser': {}
+
+    'document_create_classifier': {
+        '--no-progress': 'Nu arată progresul antrenării',
+        '--force': 'Forțează recrearea clasificatorului',
+        '--min-samples': 'Număr minim de exemple pentru antrenare',
+        '--cross-validation': 'Validare încrucișată pentru evaluare model'
+    },
+    'document_exporter': {
+        '--output-directory': 'Directory where exported files are saved',
+        '--zip': 'Package export as ZIP archive',
+        '--no-originals': 'Exclude original document files'
+    },
+    'document_consumer': {
+        '--delete': 'Delete source files after processing',
+        '--watch': 'Continuously watch for new documents',
+        '--no-progress': 'Hide progress information'
+    }
 }
 
 if __name__ == '__main__':

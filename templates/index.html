@@ -31,9 +31,13 @@
                                        list="commandList" 
                                        placeholder="Introdu sau selectează">
                                 <datalist id="commandList">
-                                    {% for cmd in command_options.keys() %}
-                                    <option value="{{ cmd }}">
-                                    {% endfor %}
+
+                                    <option value="document_retagger">
+                                    <option value="document_index">
+                                    <option value="document_sanity_checker">
+                                    <option value="document_create_classifier">
+                                    <option value="document_exporter">
+                                    <option value="document_consumer">
                                 </datalist>
                             </div>
 
