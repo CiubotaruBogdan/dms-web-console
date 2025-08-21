@@ -179,15 +179,57 @@ COMMAND_OPTIONS = {
         '--use-first': 'Use first match for correspondents/types',
         '-f': 'Overwrite existing metadata'
     },
+    'document_exporter': {
+        '-c': 'Compare file checksums',
+        '-cj': 'Compare manifest JSON',
+        '-d': 'Delete files not in current export',
+        '-f': 'Use filename format',
+        '-na': 'Skip archive files',
+        '-nt': 'Skip thumbnails',
+        '-p': 'Use folder prefixes',
+        '-sm': 'Split manifest into individual files',
+        '-z': 'Create ZIP archive',
+        '-zn': 'Specify ZIP filename',
+        '--data-only': 'Export database only',
+        '--no-progress-bar': 'Hide progress bar',
+        '--passphrase': 'Encrypt export with passphrase'
+    },
+    'document_importer': {
+        '--no-progress-bar': 'Hide progress bar',
+        '--data-only': 'Import database only',
+        '--passphrase': 'Passphrase for encrypted export'
+    },
+    'document_consumer': {
+        '--delete': 'Delete source files after processing',
+        '--watch': 'Continuously watch for new documents',
+        '--no-progress': 'Hide progress information'
+    },
+    'document_create_classifier': {},
+    'document_thumbnails': {
+        '--document': 'Generate thumbnails for specific document ID',
+        '--processes': 'Number of processes to use'
+    },
     'document_index': {
-        '--no-progress': 'Nu arată progresul indexării',
-        '--no-checksum': 'Nu verifica checksum-urile',
-        '--clean': 'Șterge și recrează indexul'
+        'reindex': 'Rebuild the document index from scratch',
+        'optimize': 'Optimize the existing index'
     },
-    'document_sanity_checker': {
-        '--delete': 'Șterge fișierele corupte',
-        '--no-progress': 'Nu arată progresul verificării'
+    'invalidate_cachalot': {},
+    'document_renamer': {},
+    'document_sanity_checker': {},
+    'mail_fetcher': {},
+    'document_archiver': {
+        '--overwrite': 'Recreate archived files even if present',
+        '--document': 'Process specific document ID'
     },
+    'decrypt_documents': {
+        '--passphrase': 'Passphrase used for decryption'
+    },
+    'document_fuzzy_match': {
+        '--ratio': 'Similarity ratio threshold (0-100)',
+        '--processes': 'Number of processes to use',
+        '--delete': 'Delete one document from each matched pair'
+    },
+
     'document_create_classifier': {
         '--no-progress': 'Nu arată progresul antrenării',
         '--force': 'Forțează recrearea clasificatorului',

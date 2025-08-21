@@ -69,20 +69,73 @@ Scriptul `manage_service.sh` oferă opțiuni pentru administrarea serviciului `m
 ### Comenzi Disponibile
 
 - `document_retagger` - Gestionare metadata documente
-  - `-c` - Match document content
+  - `-c` - Match document correspondents
   - `-T` - Match document tags
   - `-t` - Match document types
   - `-s` - Match document storage paths
-  - `-i` - Process only documents with inbox tags
-  
-- `document_index` - Indexare documente
-  - `--no-progress` - Nu arată progresul indexării
-  - `--no-checksum` - Nu verifica checksum-urile
-  - `--clean` - Șterge și recrează indexul
+  - `-i` - Procesează doar documentele cu eticheta inbox
+  - `--id-range` - Procesează un interval de ID-uri (ex. `1 100`)
+  - `--use-first` - Folosește primul rezultat potrivit
+  - `-f` - Suprascrie metadatele existente
 
-- `document_sanity_checker` - Verificare integritate
-  - `--delete` - Șterge fișierele corupte
-  - `--no-progress` - Nu arată progresul verificării
+- `document_exporter` - Exportă documente și metadate
+  - `-c`, `--compare-checksums` - Compară checksum-urile
+  - `-cj`, `--compare-json` - Compară fișierul manifest
+  - `-d`, `--delete` - Șterge fișierele care nu mai sunt în export
+  - `-f`, `--use-filename-format` - Folosește formatul definit în `PAPERLESS_FILENAME_FORMAT`
+  - `-na`, `--no-archive` - Omite fișierele arhivate
+  - `-nt`, `--no-thumbnail` - Omite thumbnail-urile
+  - `-p`, `--use-folder-prefix` - Exportă în directoare separate
+  - `-sm`, `--split-manifest` - Manifest separat per document
+  - `-z`, `--zip` - Creează un fișier ZIP
+  - `-zn`, `--zip-name` - Nume personalizat pentru arhivă
+  - `--data-only` - Exportă doar baza de date
+  - `--no-progress-bar` - Ascunde bara de progres
+  - `--passphrase` - Criptează exportul cu o parolă
+
+- `document_importer` - Importă un export existent
+  - `--no-progress-bar` - Ascunde bara de progres
+  - `--data-only` - Importă doar baza de date
+  - `--passphrase` - Parolă pentru exportul criptat
+
+- `document_consumer` - Procesează documentele din directorul de import
+  - `--delete` - Șterge fișierele sursă după procesare
+  - `--watch` - Monitorizează continuu pentru documente noi
+  - `--no-progress` - Ascunde informațiile de progres
+
+- `document_create_classifier` - Reantrenează clasificatorul automat (fără opțiuni)
+
+- `document_thumbnails` - Regenerare thumbnail-uri
+  - `--document` - ID-ul documentului de procesat
+  - `--processes` - Numărul de procese utilizate
+
+- `document_index` - Administrarea indexului de căutare
+  - `reindex` - Reconstruiește indexul de la zero
+  - `optimize` - Optimizează indexul existent
+
+- `invalidate_cachalot` - Golește cache-ul de citire (fără opțiuni)
+
+- `document_renamer` - Aplică noul format de denumire (fără opțiuni)
+
+- `document_sanity_checker` - Verifică integritatea colecției (fără opțiuni)
+
+- `mail_fetcher` - Rulează manual consumatorul de email (fără opțiuni)
+
+- `document_archiver` - Creează fișiere PDF/A
+  - `--overwrite` - Suprascrie arhivele existente
+  - `--document` - ID-ul documentului de procesat
+
+- `decrypt_documents` - Dezactivează criptarea documentelor
+  - `--passphrase` - Parola folosită la criptare
+
+- `document_fuzzy_match` - Detectează duplicate aproximative
+  - `--ratio` - Prag de similaritate (0-100)
+  - `--processes` - Număr de procese utilizate
+  - `--delete` - Șterge un document din perechea găsită
+
+- `prune_audit_logs` - Curăță intrările vechi din audit (fără opțiuni)
+
+- `createsuperuser` - Creează un cont administrativ (fără opțiuni)
 
 ## Configurare
 

@@ -31,6 +31,7 @@
                                        list="commandList" 
                                        placeholder="Introdu sau selectează">
                                 <datalist id="commandList">
+
                                     <option value="document_retagger">
                                     <option value="document_index">
                                     <option value="document_sanity_checker">
@@ -43,22 +44,24 @@
                             <div id="optionsContainer">
                                 {% for command, options in command_options.items() %}
                                 <div id="{{ command }}_options" class="options-container" style="display: none;">
+                                    {% if options %}
                                     <h6 class="mb-3">Opțiuni {{ command }}:</h6>
                                     {% for option, description in options.items() %}
                                     <div class="form-check mb-2">
-                                        <input class="form-check-input" 
-                                               type="checkbox" 
-                                               name="options[]" 
-                                               value="{{ option }}" 
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="options[]"
+                                               value="{{ option }}"
                                                id="{{ command }}_{{ option }}">
-                                        <label class="form-check-label" 
-                                               for="{{ command }}_{{ option }}" 
-                                               data-bs-toggle="tooltip" 
+                                        <label class="form-check-label"
+                                               for="{{ command }}_{{ option }}"
+                                               data-bs-toggle="tooltip"
                                                title="{{ description }}">
                                             {{ option }}
                                         </label>
                                     </div>
                                     {% endfor %}
+                                    {% endif %}
                                 </div>
                                 {% endfor %}
                             </div>
