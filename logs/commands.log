@@ -43,15 +43,15 @@
 2025-02-19 22:25:39,768 - 172.31.128.51 - - [19/Feb/2025 22:25:39] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
 2025-02-19 22:25:39,969 - 172.31.128.51 - - [19/Feb/2025 22:25:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-02-19 22:25:40,015 - 172.31.128.51 - - [19/Feb/2025 22:25:40] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-19 22:26:12,469 - User 'anonymous' executed command: docker exec mildocdms-webserver-1  
+2025-02-19 22:26:12,469 - User 'anonymous' executed command: docker exec mildocdms-orchestrator-server-1  
 2025-02-19 22:26:12,494 - 172.31.128.51 - - [19/Feb/2025 22:26:12] "GET /execute?command= HTTP/1.1" 200 -
 2025-02-19 22:26:15,824 - 172.31.128.51 - - [19/Feb/2025 22:26:15] "GET / HTTP/1.1" 200 -
 2025-02-19 22:26:16,117 - 172.31.128.51 - - [19/Feb/2025 22:26:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-02-19 22:26:16,240 - 172.31.128.51 - - [19/Feb/2025 22:26:16] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-19 22:26:17,732 - User 'system' executed command: docker exec mildocdms-webserver-1 /bin/bash
+2025-02-19 22:26:17,732 - User 'system' executed command: docker exec mildocdms-orchestrator-server-1 /bin/bash
 2025-02-19 22:26:17,746 - 172.31.128.51 - - [19/Feb/2025 22:26:17] "POST /connect HTTP/1.1" 200 -
 2025-02-19 22:26:18,292 - 172.31.128.51 - - [19/Feb/2025 22:26:18] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
-2025-02-19 22:26:24,241 - User 'anonymous' executed command: docker exec mildocdms-webserver-1  
+2025-02-19 22:26:24,241 - User 'anonymous' executed command: docker exec mildocdms-orchestrator-server-1  
 2025-02-19 22:26:24,248 - 172.31.128.51 - - [19/Feb/2025 22:26:24] "GET /execute?command= HTTP/1.1" 200 -
 2025-02-19 22:26:59,402 -  * Detected change in '/home/runner/workspace/app.py', reloading
 2025-02-19 22:26:59,441 -  * Restarting with stat
@@ -125,7 +125,7 @@
 2025-02-19 22:29:32,801 - 172.31.128.51 - - [19/Feb/2025 22:29:32] "GET /static/js/terminal.js HTTP/1.1" 200 -
 2025-02-19 22:29:32,814 - 172.31.128.51 - - [19/Feb/2025 22:29:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-02-19 22:29:33,038 - 172.31.128.51 - - [19/Feb/2025 22:29:33] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-19 22:29:56,059 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-19 22:29:56,059 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-19 22:29:56,065 - 172.31.128.51 - - [19/Feb/2025 22:29:56] "POST /connect HTTP/1.1" 200 -
 2025-02-19 22:29:56,413 - 172.31.128.51 - - [19/Feb/2025 22:29:56] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-19 22:30:01,323 - User 'anonymous' executed command: salut
@@ -161,7 +161,7 @@
 2025-02-19 22:32:16,191 - 172.31.128.51 - - [19/Feb/2025 22:32:16] "GET / HTTP/1.1" 200 -
 2025-02-19 22:32:16,471 - 172.31.128.51 - - [19/Feb/2025 22:32:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-02-19 22:32:16,473 - 172.31.128.51 - - [19/Feb/2025 22:32:16] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-19 22:32:41,150 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-19 22:32:41,150 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-19 22:32:41,156 - 172.31.128.51 - - [19/Feb/2025 22:32:41] "POST /connect HTTP/1.1" 200 -
 2025-02-19 22:32:41,620 - 172.31.128.51 - - [19/Feb/2025 22:32:41] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-19 22:32:57,117 - User 'anonymous' executed command: document_sanity_checker 
@@ -169,7 +169,7 @@
 2025-02-19 22:33:03,048 - 172.31.128.51 - - [19/Feb/2025 22:33:03] "GET / HTTP/1.1" 200 -
 2025-02-19 22:33:03,314 - 172.31.128.51 - - [19/Feb/2025 22:33:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-02-19 22:33:03,330 - 172.31.128.51 - - [19/Feb/2025 22:33:03] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-19 22:33:06,626 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-19 22:33:06,626 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-19 22:33:06,632 - 172.31.128.51 - - [19/Feb/2025 22:33:06] "POST /connect HTTP/1.1" 200 -
 2025-02-19 22:33:06,864 - 172.31.128.51 - - [19/Feb/2025 22:33:06] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-19 22:33:10,214 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
@@ -195,7 +195,7 @@
 2025-02-19 22:33:48,690 - 172.31.128.51 - - [19/Feb/2025 22:33:48] "GET / HTTP/1.1" 200 -
 2025-02-19 22:33:48,966 - 172.31.128.51 - - [19/Feb/2025 22:33:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-02-19 22:33:48,984 - 172.31.128.51 - - [19/Feb/2025 22:33:48] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-19 22:34:22,039 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-19 22:34:22,039 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-19 22:34:22,045 - 172.31.128.51 - - [19/Feb/2025 22:34:22] "POST /connect HTTP/1.1" 200 -
 2025-02-19 22:34:22,260 - 172.31.128.51 - - [19/Feb/2025 22:34:22] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-19 22:34:24,038 - User 'anonymous' executed command:  
@@ -282,7 +282,7 @@
 2025-02-20 05:25:56,056 - 172.31.128.104 - - [20/Feb/2025 05:25:56] "[36mGET /static/vendor/feather-icons/feather.min.js HTTP/1.1[0m" 304 -
 2025-02-20 05:25:56,082 - 172.31.128.104 - - [20/Feb/2025 05:25:56] "[36mGET /static/vendor/xterm/xterm.js HTTP/1.1[0m" 304 -
 2025-02-20 05:25:56,095 - 172.31.128.104 - - [20/Feb/2025 05:25:56] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-20 05:26:31,032 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:26:31,032 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:26:31,037 - 172.31.128.104 - - [20/Feb/2025 05:26:31] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:26:31,321 - 172.31.128.104 - - [20/Feb/2025 05:26:31] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 05:26:36,341 - User 'anonymous' executed command: document_index 
@@ -393,7 +393,7 @@
 2025-02-20 05:44:23,098 - 172.31.128.104 - - [20/Feb/2025 05:44:23] "[36mGET /static/vendor/feather-icons/feather.min.js HTTP/1.1[0m" 304 -
 2025-02-20 05:44:23,317 - 172.31.128.104 - - [20/Feb/2025 05:44:23] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
 2025-02-20 05:44:23,756 - 172.31.128.104 - - [20/Feb/2025 05:44:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-02-20 05:44:30,452 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:44:30,452 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:44:30,457 - 172.31.128.104 - - [20/Feb/2025 05:44:30] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:44:30,692 - 172.31.128.104 - - [20/Feb/2025 05:44:30] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 05:44:37,141 - 172.31.128.104 - - [20/Feb/2025 05:44:37] "GET /history HTTP/1.1" 200 -
@@ -406,7 +406,7 @@
 2025-02-20 05:44:46,864 - 172.31.128.104 - - [20/Feb/2025 05:44:46] "[36mGET /static/vendor/feather-icons/feather.min.js HTTP/1.1[0m" 304 -
 2025-02-20 05:44:46,903 - 172.31.128.104 - - [20/Feb/2025 05:44:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-02-20 05:44:46,980 - 172.31.128.104 - - [20/Feb/2025 05:44:46] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-20 05:44:50,132 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:44:50,132 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:44:50,153 - 172.31.128.104 - - [20/Feb/2025 05:44:50] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:44:50,403 - 172.31.128.104 - - [20/Feb/2025 05:44:50] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 05:44:59,281 - User 'anonymous' executed command: document_retagger -s
@@ -451,7 +451,7 @@
 2025-02-20 05:48:03,860 - 172.31.128.104 - - [20/Feb/2025 05:48:03] "[33mGET /static/vendor/bootstrap/bootstrap.bundle.min.js.map HTTP/1.1[0m" 404 -
 2025-02-20 05:48:03,878 - 172.31.128.104 - - [20/Feb/2025 05:48:03] "[33mGET /static/vendor/feather-icons/feather.min.js.map HTTP/1.1[0m" 404 -
 2025-02-20 05:48:03,901 - 172.31.128.104 - - [20/Feb/2025 05:48:03] "[33mGET /static/vendor/xterm/xterm.js.map HTTP/1.1[0m" 404 -
-2025-02-20 05:48:10,612 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:48:10,612 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:48:10,618 - 172.31.128.104 - - [20/Feb/2025 05:48:10] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:48:10,796 - 172.31.128.104 - - [20/Feb/2025 05:48:10] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 05:48:14,141 - 172.31.128.104 - - [20/Feb/2025 05:48:14] "GET / HTTP/1.1" 200 -
@@ -466,7 +466,7 @@
 2025-02-20 05:48:14,689 - 172.31.128.104 - - [20/Feb/2025 05:48:14] "[33mGET /static/vendor/bootstrap/bootstrap.bundle.min.js.map HTTP/1.1[0m" 404 -
 2025-02-20 05:48:15,131 - 172.31.128.104 - - [20/Feb/2025 05:48:15] "[33mGET /static/vendor/feather-icons/feather.min.js.map HTTP/1.1[0m" 404 -
 2025-02-20 05:48:15,136 - 172.31.128.104 - - [20/Feb/2025 05:48:15] "[33mGET /static/vendor/xterm/xterm.js.map HTTP/1.1[0m" 404 -
-2025-02-20 05:48:19,240 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:48:19,240 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:48:19,249 - 172.31.128.104 - - [20/Feb/2025 05:48:19] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:48:19,424 - 172.31.128.104 - - [20/Feb/2025 05:48:19] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 05:50:27,683 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
@@ -485,7 +485,7 @@
 2025-02-20 05:50:28,549 - 172.31.128.104 - - [20/Feb/2025 05:50:28] "[36mGET /static/vendor/feather-icons/feather.min.js HTTP/1.1[0m" 304 -
 2025-02-20 05:50:28,587 - 172.31.128.104 - - [20/Feb/2025 05:50:28] "[36mGET /static/vendor/xterm/xterm.js HTTP/1.1[0m" 304 -
 2025-02-20 05:50:28,590 - 172.31.128.104 - - [20/Feb/2025 05:50:28] "GET /static/js/terminal.js HTTP/1.1" 200 -
-2025-02-20 05:50:51,060 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:50:51,060 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:50:51,066 - 172.31.128.104 - - [20/Feb/2025 05:50:51] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:50:51,260 - 172.31.128.104 - - [20/Feb/2025 05:50:51] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 05:50:53,004 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
@@ -528,7 +528,7 @@
 2025-02-20 05:51:00,550 - 172.31.128.104 - - [20/Feb/2025 05:51:00] "[36mGET /static/vendor/bootstrap/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
 2025-02-20 05:51:00,561 - 172.31.128.104 - - [20/Feb/2025 05:51:00] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
 2025-02-20 05:51:00,562 - 172.31.128.104 - - [20/Feb/2025 05:51:00] "[36mGET /static/vendor/feather-icons/feather.min.js HTTP/1.1[0m" 304 -
-2025-02-20 05:51:07,327 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:51:07,327 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:51:07,332 - 172.31.128.104 - - [20/Feb/2025 05:51:07] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:51:07,511 - 172.31.128.104 - - [20/Feb/2025 05:51:07] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 05:51:09,010 - User 'anonymous' executed command: 
@@ -655,7 +655,7 @@
 2025-02-20 05:58:45,276 - 172.31.128.104 - - [20/Feb/2025 05:58:45] "GET /static/vendor/bootstrap/bootstrap.bundle.min.js HTTP/1.1" 200 -
 2025-02-20 05:58:45,279 - 172.31.128.104 - - [20/Feb/2025 05:58:45] "GET /static/js/terminal.js HTTP/1.1" 200 -
 2025-02-20 05:58:45,931 - 172.31.128.104 - - [20/Feb/2025 05:58:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-02-20 05:58:50,283 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 05:58:50,283 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 05:58:50,288 - 172.31.128.104 - - [20/Feb/2025 05:58:50] "POST /connect HTTP/1.1" 200 -
 2025-02-20 05:58:50,467 - 172.31.128.104 - - [20/Feb/2025 05:58:50] "[31m[1mGET /connect HTTP/1.1[0m" 405 -
 2025-02-20 06:00:40,281 - 172.31.128.104 - - [20/Feb/2025 06:00:40] "GET / HTTP/1.1" 200 -
@@ -707,12 +707,12 @@
 2025-02-20 06:19:06,108 - 172.31.128.104 - - [20/Feb/2025 06:19:06] "[36mGET /static/vendor/bootstrap/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
 2025-02-20 06:19:06,125 - 172.31.128.104 - - [20/Feb/2025 06:19:06] "[36mGET /static/vendor/feather-icons/feather.min.js HTTP/1.1[0m" 304 -
 2025-02-20 06:19:06,131 - 172.31.128.104 - - [20/Feb/2025 06:19:06] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
-2025-02-20 06:19:13,756 - User 'system' executed command: echo 'Connected to MilDocDMS terminal.'
+2025-02-20 06:19:13,756 - User 'system' executed command: echo 'Connected to MilDocDMS Orchestrator terminal.'
 2025-02-20 06:19:13,762 - 172.31.128.104 - - [20/Feb/2025 06:19:13] "POST /connect HTTP/1.1" 200 -
 2025-02-20 06:19:13,942 - User 'anonymous' executed command: sudo su
 2025-02-20 06:19:13,942 - 172.31.128.104 - - [20/Feb/2025 06:19:13] "GET /execute_direct?command=sudo%20su HTTP/1.1" 200 -
-2025-02-20 06:19:17,125 - User 'anonymous' executed command: docker exec -it mildocdms-webserver-1 bash
-2025-02-20 06:19:17,125 - 172.31.128.104 - - [20/Feb/2025 06:19:17] "GET /execute_direct?command=docker%20exec%20-it%20mildocdms-webserver-1%20bash HTTP/1.1" 200 -
+2025-02-20 06:19:17,125 - User 'anonymous' executed command: docker exec -it mildocdms-orchestrator-server-1 bash
+2025-02-20 06:19:17,125 - 172.31.128.104 - - [20/Feb/2025 06:19:17] "GET /execute_direct?command=docker%20exec%20-it%20mildocdms-orchestrator-server-1%20bash HTTP/1.1" 200 -
 2025-02-20 06:20:01,879 - 172.31.128.104 - - [20/Feb/2025 06:20:01] "GET / HTTP/1.1" 200 -
 2025-02-20 06:20:02,238 - 172.31.128.104 - - [20/Feb/2025 06:20:02] "GET /static/vendor/bootstrap/bootstrap.min.css HTTP/1.1" 200 -
 2025-02-20 06:20:02,443 - 172.31.128.104 - - [20/Feb/2025 06:20:02] "GET /static/vendor/xterm/xterm.css HTTP/1.1" 200 -
@@ -1584,12 +1584,12 @@
 2025-02-20 08:43:01,301 - 172.31.128.104 - - [20/Feb/2025 08:43:01] "[36mGET /static/vendor/xterm/xterm.js HTTP/1.1[0m" 304 -
 2025-02-20 08:43:01,320 - 172.31.128.104 - - [20/Feb/2025 08:43:01] "[36mGET /static/js/terminal.js HTTP/1.1[0m" 304 -
 2025-02-20 08:43:01,321 - 172.31.128.104 - - [20/Feb/2025 08:43:01] "[36mGET /static/vendor/feather-icons/feather.min.js HTTP/1.1[0m" 304 -
-2025-02-20 08:43:08,253 - executed command: sudo docker exec -it mildocdms-webserver-1 bash
-2025-02-20 08:43:10,304 - executed command: sudo docker exec -it mildocdms-webserver-1 bash
-2025-02-20 08:43:12,432 - executed command: sudo docker exec -it mildocdms-webserver-1 bash
-2025-02-20 08:43:13,098 - executed command: sudo docker exec -it mildocdms-webserver-1 bash
-2025-02-20 08:43:13,952 - executed command: sudo docker exec -it mildocdms-webserver-1 bash
-2025-02-20 08:43:17,081 - executed command: sudo docker exec -it mildocdms-webserver-1 bash
+2025-02-20 08:43:08,253 - executed command: sudo docker exec -it mildocdms-orchestrator-server-1 bash
+2025-02-20 08:43:10,304 - executed command: sudo docker exec -it mildocdms-orchestrator-server-1 bash
+2025-02-20 08:43:12,432 - executed command: sudo docker exec -it mildocdms-orchestrator-server-1 bash
+2025-02-20 08:43:13,098 - executed command: sudo docker exec -it mildocdms-orchestrator-server-1 bash
+2025-02-20 08:43:13,952 - executed command: sudo docker exec -it mildocdms-orchestrator-server-1 bash
+2025-02-20 08:43:17,081 - executed command: sudo docker exec -it mildocdms-orchestrator-server-1 bash
 2025-02-20 08:44:27,103 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000

@@ -1,7 +1,6 @@
+# MilDocDMS Orchestrator
 
-# Paperless Web Interface
-
-Interfață web pentru gestionarea și procesarea documentelor folosind serviciul MilDocDMS. Oferă acces la comenzi de procesare documente prin intermediul unui terminal web interactiv.
+Interfață web pentru gestionarea și procesarea documentelor folosind serviciul MilDocDMS Orchestrator. Oferă un terminal web interactiv pentru executarea comenzilor de administrare a documentelor.
 
 ## Caracteristici
 
@@ -11,31 +10,59 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 - Istoric comenzi executate
 - Suport pentru instalare offline
 
-## Instalare
+## Cerințe preliminare
 
-### 1. Instalare Dependențe
+- Python 3 și `pip`
+- Acces la pachetul de dependențe din directorul `offline_packages`
+
+## Instalare pas cu pas
+
+1. **Clonați repository-ul**
+   ```bash
+   git clone <URL-repo>
+   cd mildocdms-orchestrator
+   ```
+
+2. **Instalați dependențele**
+   ```bash
+   cd offline_packages
+   pip3 install --no-index --find-links=. -r requirements.txt
+   cd ..
+   ```
+
+3. **Instalați și porniți serviciul**
+   ```bash
+   cd linux_service
+   chmod +x manage_service.sh
+   sudo ./manage_service.sh
+   ```
+   Din meniul scriptului selectați:
+   1. *Instalare serviciu*
+   2. *Pornire serviciu* (dacă nu pornește automat)
+
+4. **Verificați statusul serviciului**
+   ```bash
+   ./check_service.sh
+   ```
+
+5. **Accesați interfața web**
+   Navigați în browser la `http://localhost:5000`.
+
+### Rulare manuală (opțional)
+Pentru a porni aplicația fără instalarea serviciului systemd:
 ```bash
-cd offline_packages
-pip3 install --no-index --find-links=. -r requirements.txt
+python3 app.py
 ```
 
-### 2. Configurare Serviciu
+## Administrarea Serviciului Linux
 
-Folosiți scriptul de management pentru instalare și configurare:
+Scriptul `manage_service.sh` oferă opțiuni pentru administrarea serviciului `mildocdms-orchestrator`:
 
-```bash
-cd linux_service
-chmod +x manage_service.sh
-sudo ./manage_service.sh
-```
-
-Scriptul oferă următoarele opțiuni:
-1. Instalare serviciu
-2. Pornire serviciu
-3. Oprire serviciu
-4. Verificare status
-5. Vizualizare log-uri
-6. Dezinstalare serviciu
+- **Pornire:** `sudo systemctl start mildocdms-orchestrator`
+- **Oprire:** `sudo systemctl stop mildocdms-orchestrator`
+- **Status:** `sudo systemctl status mildocdms-orchestrator`
+- **Log-uri:** `sudo journalctl -u mildocdms-orchestrator -f`
+- **Dezinstalare:** Rulați `./manage_service.sh` și selectați opțiunea `Uninstall service`
 
 ## Utilizare
 
@@ -57,24 +84,11 @@ Scriptul oferă următoarele opțiuni:
   - `--delete` - Șterge fișierele corupte
   - `--no-progress` - Nu arată progresul verificării
 
-### Verificare Status
-
-Pentru a verifica statusul serviciului:
-```bash
-./check_service.sh
-```
-
-### Acces Interfață Web
-
-După instalare și pornire, interfața web este disponibilă la:
-- Port: 5000
-- URL: http://localhost:5000
-
 ## Configurare
 
 ### Setări Implicite
 - Utilizator serviciu: `dms`
-- Director instalare: `/opt/mildocdms-web`
+- Director instalare: `/opt/mildocdms-orchestrator`
 - Port: 5000
 
 ### Variabile de Mediu

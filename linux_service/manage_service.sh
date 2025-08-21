@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SERVICE_NAME="mildocdms-web"
+SERVICE_NAME="mildocdms-orchestrator"
 SERVICE_USER="dms"
-INSTALL_DIR="/opt/mildocdms-web"
+INSTALL_DIR="/opt/mildocdms-orchestrator"
 
 # Colors for output
 RED='\033[0;31m'
@@ -21,7 +21,7 @@ check_root() {
 # Install service
 install_service() {
     check_root
-    echo -e "${YELLOW}Installing MilDocDMS Web Service...${NC}"
+    echo -e "${YELLOW}Installing MilDocDMS Orchestrator Service...${NC}"
     
     # Create dms user if it doesn't exist
     if ! id -u $SERVICE_USER >/dev/null 2>&1; then
@@ -34,7 +34,7 @@ install_service() {
     chown -R $SERVICE_USER:$SERVICE_USER $INSTALL_DIR
     
     # Install service file
-    cp mildocdms-web.service /etc/systemd/system/
+    cp mildocdms-orchestrator.service /etc/systemd/system/
     systemctl daemon-reload
     systemctl enable $SERVICE_NAME
     
@@ -87,7 +87,7 @@ uninstall_service() {
 
 # Show menu
 show_menu() {
-    echo -e "${YELLOW}MilDocDMS Web Service Manager${NC}"
+    echo -e "${YELLOW}MilDocDMS Orchestrator Service Manager${NC}"
     echo "1. Install service"
     echo "2. Start service"
     echo "3. Stop service"
@@ -114,4 +114,5 @@ show_menu() {
 while true; do
     show_menu
     echo
+
 done

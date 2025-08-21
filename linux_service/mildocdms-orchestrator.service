@@ -1,10 +1,10 @@
 [Unit]
-Description=MilDocDMS Web Interface
+Description=MilDocDMS Orchestrator
 After=network.target
 
 [Service]
 User=dms
-WorkingDirectory=/opt/mildocdms-web
+WorkingDirectory=/opt/mildocdms-orchestrator
 Environment="FLASK_APP=app.py"
 Environment="FLASK_ENV=production"
 Environment="PYTHONUNBUFFERED=1"

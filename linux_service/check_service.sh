@@ -1,13 +1,13 @@
 #!/bin/bash
 
-SERVICE_NAME="mildocdms-web"
+SERVICE_NAME="mildocdms-orchestrator"
 PORT=5000
 
 # Check if service is installed
 if ! systemctl list-unit-files | grep -q "^$SERVICE_NAME.service"; then
     echo "Installing $SERVICE_NAME service..."
     # Copy service file
-    sudo cp mildocdms-web.service /etc/systemd/system/
+    sudo cp mildocdms-orchestrator.service /etc/systemd/system/
     sudo systemctl daemon-reload
     sudo systemctl enable $SERVICE_NAME
 fi
