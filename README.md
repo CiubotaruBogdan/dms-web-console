@@ -16,13 +16,12 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 
 ## Instalare pas cu pas
 
-1. **Clonați repository-ul**
+1. **Instalați dependențele**
    ```bash
-   git clone <URL-repo>
-   cd mildocdms-orchestrator
+   pip3 install -r requirements.txt
    ```
 
-2. **Instalați dependențele**
+   Sau utilizați scriptul de inițializare:
    ```bash
    pip3 install -r requirements.txt
    ```
@@ -32,7 +31,7 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
    ./init.sh
    ```
 
-3. **Instalați și porniți serviciul**
+2. **Instalați și porniți serviciul**
    ```bash
    cd linux_service
    chmod +x manage_service.sh
@@ -42,12 +41,12 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
    1. *Instalare serviciu*
    2. *Pornire serviciu* (dacă nu pornește automat)
 
-4. **Verificați statusul serviciului**
+3. **Verificați statusul serviciului**
    ```bash
    ./check_service.sh
    ```
 
-5. **Accesați interfața web**
+4. **Accesați interfața web**
    Navigați în browser la `http://localhost:5000`.
 
 ### Rulare manuală (opțional)
@@ -177,10 +176,3 @@ Scriptul `manage_service.sh` oferă opțiuni pentru administrarea serviciului `m
 - Director instalare: `/opt/mildocdms-orchestrator`
 - Port: 5000
 
-### Variabile de Mediu
-```
-FLASK_APP=app.py
-FLASK_ENV=production
-PYTHONUNBUFFERED=1
-SESSION_SECRET=[your-secret-key]
-```
