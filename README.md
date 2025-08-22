@@ -13,7 +13,6 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 ## Cerințe preliminare
 
 - Python 3 și `pip`
-- Acces la pachetul de dependențe din directorul `offline_packages`
 
 ## Instalare pas cu pas
 
@@ -25,9 +24,12 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 
 2. **Instalați dependențele**
    ```bash
-   cd offline_packages
-   pip3 install --no-index --find-links=. -r requirements.txt
-   cd ..
+   pip3 install -r requirements.txt
+   ```
+
+   Sau utilizați scriptul de inițializare:
+   ```bash
+   ./init.sh
    ```
 
 3. **Instalați și porniți serviciul**
@@ -51,7 +53,38 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 ### Rulare manuală (opțional)
 Pentru a porni aplicația fără instalarea serviciului systemd:
 ```bash
-python3 app.py
+python3 aplicatie_web/app.py
+```
+
+## Instalare offline a dependențelor
+
+1. Asigurați-vă că aveți instalate `python3` și `pip`:
+   ```bash
+   sudo apt update
+   sudo apt install python3 python3-pip
+   ```
+
+2. Navigați în directorul ce conține pachetele descărcate:
+   ```bash
+   cd path/to/pachete_offline
+   ```
+
+3. Instalați pachetele folosind pip fără acces la internet:
+   ```bash
+   pip3 install --no-index --find-links=. -r requirements.txt
+   ```
+
+### Listă pachete
+- Flask (3.0.2)
+- Flask-SQLAlchemy (3.1.1)
+- gunicorn (21.2.0)
+- psycopg2-binary (2.9.9)
+- email-validator (2.1.0.post1)
+
+### Actualizarea arhivei de pachete offline
+Pe un sistem cu acces la internet, rulați:
+```bash
+pip3 download -r requirements.txt -d .
 ```
 
 ## Administrarea Serviciului Linux
