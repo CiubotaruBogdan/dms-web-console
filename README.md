@@ -13,24 +13,20 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 ## Cerințe preliminare
 
 - Python 3 și `pip`
-- Acces la pachetul de dependențe din directorul `offline_packages`
 
 ## Instalare pas cu pas
 
-1. **Clonați repository-ul**
+1. **Instalați dependențele**
    ```bash
-   git clone <URL-repo>
-   cd mildocdms-orchestrator
+   pip3 install -r requirements.txt
    ```
 
-2. **Instalați dependențele**
+   Sau utilizați scriptul de inițializare:
    ```bash
-   cd offline_packages
-   pip3 install --no-index --find-links=. -r requirements.txt
-   cd ..
+   ./init.sh
    ```
 
-3. **Instalați și porniți serviciul**
+2. **Instalați și porniți serviciul**
    ```bash
    cd linux_service
    chmod +x manage_service.sh
@@ -40,18 +36,49 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
    1. *Instalare serviciu*
    2. *Pornire serviciu* (dacă nu pornește automat)
 
-4. **Verificați statusul serviciului**
+3. **Verificați statusul serviciului**
    ```bash
    ./check_service.sh
    ```
 
-5. **Accesați interfața web**
+4. **Accesați interfața web**
    Navigați în browser la `http://localhost:5000`.
 
 ### Rulare manuală (opțional)
 Pentru a porni aplicația fără instalarea serviciului systemd:
 ```bash
-python3 app.py
+python3 aplicatie_web/app.py
+```
+
+## Instalare offline a dependențelor
+
+1. Asigurați-vă că aveți instalate `python3` și `pip`:
+   ```bash
+   sudo apt update
+   sudo apt install python3 python3-pip
+   ```
+
+2. Navigați în directorul ce conține pachetele descărcate:
+   ```bash
+   cd path/to/pachete_offline
+   ```
+
+3. Instalați pachetele folosind pip fără acces la internet:
+   ```bash
+   pip3 install --no-index --find-links=. -r requirements.txt
+   ```
+
+### Listă pachete
+- Flask (3.0.2)
+- Flask-SQLAlchemy (3.1.1)
+- gunicorn (21.2.0)
+- psycopg2-binary (2.9.9)
+- email-validator (2.1.0.post1)
+
+### Actualizarea arhivei de pachete offline
+Pe un sistem cu acces la internet, rulați:
+```bash
+pip3 download -r requirements.txt -d .
 ```
 
 ## Administrarea Serviciului Linux
@@ -144,10 +171,3 @@ Scriptul `manage_service.sh` oferă opțiuni pentru administrarea serviciului `m
 - Director instalare: `/opt/mildocdms-orchestrator`
 - Port: 5000
 
-### Variabile de Mediu
-```
-FLASK_APP=app.py
-FLASK_ENV=production
-PYTHONUNBUFFERED=1
-SESSION_SECRET=[your-secret-key]
-```

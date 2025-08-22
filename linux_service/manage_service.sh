@@ -3,114 +3,109 @@
 SERVICE_NAME="mildocdms-orchestrator"
 SERVICE_USER="dms"
 INSTALL_DIR="/opt/mildocdms-orchestrator"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_DIR="$(dirname "$SCRIPT_DIR")"
+SERVICE_FILE="$SCRIPT_DIR/mildocdms-orchestrator.service"
 
-# Colors for output
+# Culori pentru output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-# Function to check if script is run as root
 check_root() {
     if [ "$EUID" -ne 0 ]; then
-        echo -e "${RED}Please run as root or with sudo${NC}"
+        echo -e "${RED}Te rugăm să rulezi ca root sau cu sudo${NC}"
         exit 1
     fi
 }
 
-# Install service
 install_service() {
     check_root
-    echo -e "${YELLOW}Installing MilDocDMS Orchestrator Service...${NC}"
-    
-    # Create dms user if it doesn't exist
-    if ! id -u $SERVICE_USER >/dev/null 2>&1; then
-        useradd -r -s /bin/false $SERVICE_USER
+    echo -e "${YELLOW}Instalare serviciu MilDocDMS Orchestrator...${NC}"
+
+    # Creează utilizatorul dms dacă nu există
+    if ! id -u "$SERVICE_USER" >/dev/null 2>&1; then
+        useradd -r -s /bin/false "$SERVICE_USER"
     fi
-    
-    # Create install directory and set permissions
-    mkdir -p $INSTALL_DIR
-    cp -r ../* $INSTALL_DIR/
-    chown -R $SERVICE_USER:$SERVICE_USER $INSTALL_DIR
-    
-    # Install service file
-    cp mildocdms-orchestrator.service /etc/systemd/system/
+
+    # Creează directorul de instalare și setează permisiunile
+    mkdir -p "$INSTALL_DIR"
+    cp -r "$REPO_DIR"/* "$INSTALL_DIR/"
+    chown -R "$SERVICE_USER":"$SERVICE_USER" "$INSTALL_DIR"
+
+    # Instalează fișierul de serviciu
+    cp "$SERVICE_FILE" /etc/systemd/system/
     systemctl daemon-reload
-    systemctl enable $SERVICE_NAME
-    
-    echo -e "${GREEN}Service installed successfully${NC}"
+    systemctl enable "$SERVICE_NAME"
+
     start_service
+    echo -e "${GREEN}Serviciu instalat cu succes${NC}"
+    read -p "Apasă Enter pentru a reveni la meniu" -r
 }
 
-# Start service
 start_service() {
     check_root
-    echo -e "${YELLOW}Starting $SERVICE_NAME...${NC}"
-    systemctl start $SERVICE_NAME
+    echo -e "${YELLOW}Pornire $SERVICE_NAME...${NC}"
+    systemctl start "$SERVICE_NAME"
     sleep 2
     check_status
 }
 
-# Stop service
 stop_service() {
     check_root
-    echo -e "${YELLOW}Stopping $SERVICE_NAME...${NC}"
-    systemctl stop $SERVICE_NAME
+    echo -e "${YELLOW}Oprire $SERVICE_NAME...${NC}"
+    systemctl stop "$SERVICE_NAME"
     sleep 2
     check_status
 }
 
-# Check service status
 check_status() {
     check_root
-    echo -e "${YELLOW}Checking $SERVICE_NAME status...${NC}"
-    systemctl status $SERVICE_NAME
+    echo -e "${YELLOW}Verificare stare $SERVICE_NAME...${NC}"
+    systemctl status "$SERVICE_NAME" --no-pager --lines=0
 }
 
-# View service logs
 view_logs() {
     check_root
-    echo -e "${YELLOW}Showing $SERVICE_NAME logs...${NC}"
-    journalctl -u $SERVICE_NAME -f
+    echo -e "${YELLOW}Afișare loguri $SERVICE_NAME...${NC}"
+    journalctl -u "$SERVICE_NAME" -f
 }
 
-# Uninstall service
 uninstall_service() {
     check_root
-    echo -e "${YELLOW}Uninstalling $SERVICE_NAME...${NC}"
-    systemctl stop $SERVICE_NAME
-    systemctl disable $SERVICE_NAME
-    rm /etc/systemd/system/$SERVICE_NAME.service
+    echo -e "${YELLOW}Dezinstalare $SERVICE_NAME...${NC}"
+    systemctl stop "$SERVICE_NAME"
+    systemctl disable "$SERVICE_NAME"
+    rm "/etc/systemd/system/$SERVICE_NAME.service"
     systemctl daemon-reload
-    echo -e "${GREEN}Service uninstalled successfully${NC}"
+    echo -e "${GREEN}Serviciu dezinstalat cu succes${NC}"
 }
 
-# Show menu
 show_menu() {
-    echo -e "${YELLOW}MilDocDMS Orchestrator Service Manager${NC}"
-    echo "1. Install service"
-    echo "2. Start service"
-    echo "3. Stop service"
-    echo "4. Check service status"
-    echo "5. View service logs"
-    echo "6. Uninstall service"
-    echo "q. Quit"
+    echo -e "${YELLOW}Manager Serviciu MilDocDMS Orchestrator${NC}"
+    echo "1. Instalează serviciul"
+    echo "2. Pornește serviciul"
+    echo "3. Oprește serviciul"
+    echo "4. Verifică starea serviciului"
+    echo "5. Vezi logurile serviciului"
+    echo "6. Dezinstalează serviciul"
+    echo "q. Ieșire"
     echo
-    read -p "Select an option: " choice
-    
-    case $choice in
+    read -p "Selectează o opțiune: " choice
+
+    case "$choice" in
         1) install_service ;;
         2) start_service ;;
         3) stop_service ;;
         4) check_status ;;
         5) view_logs ;;
         6) uninstall_service ;;
-        q) exit 0 ;;
-        *) echo -e "${RED}Invalid option${NC}" ;;
+        q|Q) exit 0 ;;
+        *) echo -e "${RED}Opțiune invalidă${NC}" ;;
     esac
 }
 
-# Main loop
 while true; do
     show_menu
     echo
