@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=dms
-WorkingDirectory=/opt/mildocdms-orchestrator
+WorkingDirectory=/opt/mildocdms-orchestrator/aplicatie_web
 Environment="FLASK_APP=app.py"
 Environment="FLASK_ENV=production"
 Environment="PYTHONUNBUFFERED=1"
