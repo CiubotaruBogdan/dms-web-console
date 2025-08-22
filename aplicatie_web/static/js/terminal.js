@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     orchestratorButton.addEventListener('click', () => {
         if (isConnected && socket.readyState === WebSocket.OPEN) {
-            const command = 'docker exec -it mildocdms-orchestrator-server-1 bash';
+            const command = 'sudo su -c "docker exec -it mildocdms-webserver-1 bash"';
             socket.send(command);
             term.focus();
         }
