@@ -5,6 +5,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
+
 install_requirements() {
     if command -v pip3 >/dev/null 2>&1; then
         pip3 install -r requirements.txt
