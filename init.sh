@@ -13,6 +13,7 @@ manage_service() {
         echo -e "\e[31mAceastă opțiune trebuie rulată cu sudo.\e[0m"
         return
     fi
+
     if [ -x linux_service/manage_service.sh ]; then
         linux_service/manage_service.sh
     else
