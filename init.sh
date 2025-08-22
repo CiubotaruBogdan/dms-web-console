@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ "$EUID" -ne 0 ]; then
-    echo -e "\e[31mAcest script trebuie rulat cu sudo.\e[0m"
-    exit 1
-fi
 
 install_requirements() {
     if command -v pip3 >/dev/null 2>&1; then
@@ -14,6 +10,10 @@ install_requirements() {
 }
 
 manage_service() {
+    if [ "$EUID" -ne 0 ]; then
+        echo -e "\e[31mAceastă opțiune trebuie rulată cu sudo.\e[0m"
+        return
+    fi
     if [ -x linux_service/manage_service.sh ]; then
         linux_service/manage_service.sh
     else

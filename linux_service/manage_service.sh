@@ -39,8 +39,9 @@ install_service() {
     systemctl daemon-reload
     systemctl enable "$SERVICE_NAME"
 
-    echo -e "${GREEN}Serviciu instalat cu succes${NC}"
     start_service
+    echo -e "${GREEN}Serviciu instalat cu succes${NC}"
+    read -p "Apasă Enter pentru a reveni la meniu" -r
 }
 
 start_service() {
