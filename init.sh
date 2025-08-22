@@ -5,12 +5,11 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-
 install_requirements() {
     if command -v pip3 >/dev/null 2>&1; then
         pip3 install -r requirements.txt
     else
-        echo "pip3 nu este instalat"
+        echo -e "\e[31mpip3 nu este instalat\e[0m"
     fi
 }
 
@@ -23,7 +22,7 @@ manage_service() {
 }
 
 while true; do
-    echo "MilDocDMS Orchestrator - Init"
+    echo "MilDocDMS Orchestrator - Inițializare"
     echo "1. Instalează dependențele"
     echo "2. Administrare serviciu Linux"
     echo "q. Ieșire"
