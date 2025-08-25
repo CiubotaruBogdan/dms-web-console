@@ -1,0 +1,8 @@
+logs/
+aplicatie_web/logs/
+__pycache__/
+aplicatie_web/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
