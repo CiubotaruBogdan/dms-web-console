@@ -68,7 +68,6 @@ Aplicația poate fi rulată în containere Docker, inclusiv pe Windows prin Dock
 Această comandă construiește imaginea **mildocdms-orchestrator** și pornește containerul cu același nume pe portul `5000`. Containerul se conectează la serviciul `mildocdms` prin `http://host.docker.internal:8000`.
 
 Imaginea include utilitarul Docker CLI și montează socket-ul Docker al gazdei, permițând rularea comenzilor `docker` din terminalul web.
-
 Alternativ, poți construi și rula manual:
 
 ```bash
@@ -78,7 +77,6 @@ docker run -p 5000:5000 \
   -v /var/run/docker.sock:/var/run/docker.sock \
   mildocdms-orchestrator
 ```
-
 ## Instalare offline a dependențelor
 
 1. Asigurați-vă că aveți instalate `python3` și `pip`:

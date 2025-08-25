@@ -1,5 +1,4 @@
 FROM docker:27-cli AS docker
-
 FROM python:3.10-slim
 
 WORKDIR /app
