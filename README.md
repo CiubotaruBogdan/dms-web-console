@@ -59,6 +59,7 @@ python3 aplicatie_web/app.py
 
 Aplicația poate fi rulată în containere Docker, inclusiv pe Windows prin Docker Desktop. Asigură-te că serviciul `mildocdms` rulează separat și expune portul `8000` (ex.: `docker run -p 8000:8000 --name mildocdms mildocdms:latest`).
 
+
 1. Instalează [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 2. Din directorul proiectului rulează:
    ```bash
@@ -73,6 +74,7 @@ Alternativ, poți construi și rula manual:
 docker build -t mildocdms-orchestrator .
 docker run -p 5000:5000 -e MILDOC_SERVICE_URL=http://host.docker.internal:8000 mildocdms-orchestrator
 ```
+
 
 ## Instalare offline a dependențelor
 

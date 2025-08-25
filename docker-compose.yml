@@ -1,5 +1,6 @@
 version: '3.8'
 services:
+
   orchestrator:
     build: .
     container_name: mildocdms-orchestrator
@@ -7,3 +8,4 @@ services:
       - "5000:5000"
     environment:
       - MILDOC_SERVICE_URL=http://host.docker.internal:8000
+
