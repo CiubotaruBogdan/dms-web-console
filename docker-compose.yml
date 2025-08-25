@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  mildocdms:
+    image: mildocdms:latest
+    container_name: mildocdms
+    ports:
+      - "8000:8000"
+
+  orchestrator:
+    build: .
+    container_name: mildocdms-orchestrator
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mildocdms
+    environment:
+      - MILDOC_SERVICE_URL=http://mildocdms:8000
