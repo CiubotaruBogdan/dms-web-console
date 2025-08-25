@@ -2,9 +2,10 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies and Docker CLI
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends bash \
+    && apt-get install -y --no-install-recommends bash docker.io \
+
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
