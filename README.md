@@ -55,6 +55,25 @@ Pentru a porni aplicația fără instalarea serviciului systemd:
 python3 aplicatie_web/app.py
 ```
 
+## Docker
+
+Aplicația poate fi rulată în containere Docker, inclusiv pe Windows prin Docker Desktop. Asigură-te că serviciul `mildocdms` rulează separat și expune portul `8000` (ex.: `docker run -p 8000:8000 --name mildocdms mildocdms:latest`).
+
+1. Instalează [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+2. Din directorul proiectului rulează:
+   ```bash
+   docker compose up --build
+   ```
+
+Această comandă construiește imaginea **mildocdms-orchestrator** și pornește containerul cu același nume pe portul `5000`. Containerul se conectează la serviciul `mildocdms` prin `http://host.docker.internal:8000`.
+
+Alternativ, poți construi și rula manual:
+
+```bash
+docker build -t mildocdms-orchestrator .
+docker run -p 5000:5000 -e MILDOC_SERVICE_URL=http://host.docker.internal:8000 mildocdms-orchestrator
+```
+
 ## Instalare offline a dependențelor
 
 1. Asigurați-vă că aveți instalate `python3` și `pip`:
