@@ -23,11 +23,6 @@ Interfață web pentru gestionarea și procesarea documentelor folosind serviciu
 
    Sau utilizați scriptul de inițializare:
    ```bash
-   pip3 install -r requirements.txt
-   ```
-
-   Sau utilizați scriptul de inițializare:
-   ```bash
    ./init.sh
    ```
 

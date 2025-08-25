@@ -39,8 +39,9 @@ install_service() {
     systemctl daemon-reload
     systemctl enable "$SERVICE_NAME"
 
-    echo -e "${GREEN}Serviciu instalat cu succes${NC}"
     start_service
+    echo -e "${GREEN}Serviciu instalat cu succes${NC}"
+    read -p "Apasă Enter pentru a reveni la meniu" -r
 }
 
 start_service() {
@@ -62,7 +63,7 @@ stop_service() {
 check_status() {
     check_root
     echo -e "${YELLOW}Verificare stare $SERVICE_NAME...${NC}"
-    systemctl status "$SERVICE_NAME"
+    systemctl status "$SERVICE_NAME" --no-pager --lines=0
 }
 
 view_logs() {
