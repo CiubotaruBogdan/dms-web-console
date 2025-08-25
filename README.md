@@ -55,6 +55,16 @@ Pentru a porni aplicația fără instalarea serviciului systemd:
 python3 aplicatie_web/app.py
 ```
 
+### Rulare cu Docker
+Pentru a construi imaginea Docker:
+```bash
+docker build -t dms-web-console .
+```
+Pentru a porni containerul:
+```bash
+docker run -p 5000:5000 dms-web-console
+```
+
 ## Instalare offline a dependențelor
 
 1. Asigurați-vă că aveți instalate `python3` și `pip`:
